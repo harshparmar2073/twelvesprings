@@ -12,6 +12,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
 import { Divider, ListItemText, ListItemIcon, Collapse } from "@mui/material";
+import { handleNavigation } from "../../utils/scrollUtils";
 
 // Import MUI Icons
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -58,7 +59,7 @@ const Logo = styled("img")({
     width: "170px",
 });
 
-const NestedMenuItem = ({ parent, onClose,navigate }) => {
+const NestedMenuItem = ({ parent, onClose, navigate }) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleOpen = (event) => {
@@ -67,6 +68,12 @@ const NestedMenuItem = ({ parent, onClose,navigate }) => {
 
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleItemClick = (item) => {
+        handleNavigation('/#technologies', navigate);
+        onClose();
+        handleClose();
     };
 
     return (
@@ -127,10 +134,7 @@ const NestedMenuItem = ({ parent, onClose,navigate }) => {
                 {parent.nestedItems.map((item) => (
                     <MenuItem
                         key={item}
-                        onClick={() => {
-                            navigate('/#technologies');
-                            onClose();
-                        }}
+                        onClick={() => handleItemClick(item)}
                         sx={{
                             fontSize: "1rem",
                             py: 1.5,
@@ -272,17 +276,6 @@ const Header = () => {
         <AppBar
             position="static"
             sx={{
-                background: `
-                    repeating-linear-gradient(
-                        180deg,
-                        #FFF7EE 0%,
-                        #FFFFFF 50%,
-                        #FFF7EE 100%
-                    )
-                `,
-                backgroundSize: "100% 200vh",
-                color: "#000",
-                boxShadow: "none",
                 px: { xs: 2, md: 4, lg: 10 },
                 py: 2,
             }}
@@ -409,7 +402,7 @@ const Header = () => {
                                                 <MenuItem
                                                     key={subItem.name}
                                                     onClick={() => {
-                                                        navigate(subItem.link);
+                                                        handleNavigation(subItem.link, navigate);
                                                         handleMenuClose();
                                                     }}
                                                     sx={{
@@ -565,7 +558,7 @@ const Header = () => {
                                                                         <MenuItem 
                                                                             key={nestedItem} 
                                                                             onClick={() => {
-                                                                                navigate('/technologies');
+                                                                                handleNavigation('/#technologies', navigate);
                                                                                 handleMobileMenuClose();
                                                                             }}
                                                                             sx={{
@@ -586,7 +579,7 @@ const Header = () => {
                                                         <MenuItem
                                                             key={subItem.name}
                                                             onClick={() => {
-                                                                navigate(subItem.link);
+                                                                handleNavigation(subItem.link, navigate);
                                                                 handleMobileMenuClose();
                                                             }}
                                                             sx={{
@@ -609,7 +602,7 @@ const Header = () => {
                                 ) : (
                                     <MenuItem
                                         onClick={() => {
-                                            navigate(item.link);
+                                            handleNavigation(item.link, navigate);
                                             handleMobileMenuClose();
                                         }}
                                         sx={{

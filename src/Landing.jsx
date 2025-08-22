@@ -91,14 +91,7 @@ const Landing = () => {
     <Box
       sx={{
         minHeight: "100vh",
-        background: `
-          repeating-linear-gradient(
-            180deg,
-            #FFF7EE 0%,
-            #FFFFFF 70%,
-            #FFF7EE 90%
-          )
-        `,
+        background: (theme) => theme.palette.background.gradient,
         backgroundSize: "100% 200vh",
         display: "flex",
         flexDirection: "column", // Ensure content flows vertically

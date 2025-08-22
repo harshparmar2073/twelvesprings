@@ -20,16 +20,8 @@ function Dashboard() {
       <Header />
       <Box
         sx={{
-          // Use a single repeating gradient for a seamless effect
-          background: `
-            repeating-linear-gradient(
-              180deg,
-              #FFF7EE 0%,
-              #FFFFFF 50%,
-              #FFF7EE 100%
-            )
-          `,
-          backgroundSize: '100% 200vh', // Sets the size of one complete, repeating gradient wave
+          background: (theme) => theme.palette.background.gradient,
+          backgroundSize: '100% 200vh',
         }}
       >
         <Box id="intro">
