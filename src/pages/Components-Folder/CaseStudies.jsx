@@ -89,7 +89,7 @@ function BulletList({ items }) {
           sx={{ listStyle: "none", display: "flex", gap: 1.25, alignItems: "start" }}
         >
           <CheckCircle sx={{ fontSize: 16, mt: "2px" }} />
-          <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
+          <Typography variant="body2" sx={{ lineHeight: 1.6, fontFamily: "poppins" }}>
             {t}
           </Typography>
         </Box>
@@ -133,16 +133,17 @@ export default function CaseStudies() {
               textTransform: "uppercase",
               fontSize: 12,
               color: "text.secondary",
+              fontFamily: "poppins",
             }}
           >
             Case studies
           </Typography>
-          <Typography variant="h4" sx={{ fontWeight: 700, textAlign: "center" }}>
+          <Typography variant="h4" sx={{ fontWeight: 700, textAlign: "center", fontFamily: "poppins" }}>
             Success Stories
           </Typography>
           <Typography
             variant="body1"
-            sx={{ color: "text.secondary", textAlign: "center", maxWidth: 720 }}
+            sx={{ color: "text.secondary", textAlign: "center", maxWidth: 720, fontFamily: "poppins" }}
           >
             Discover how we transform businesses with focused, scalable solutions.
           </Typography>
@@ -216,7 +217,7 @@ export default function CaseStudies() {
                 spacing={1.5}
                 mb={2}
               >
-                <Typography variant="h5" sx={{ fontWeight: 700 }}>
+                <Typography variant="h5" sx={{ fontWeight: 700, fontFamily: "poppins" }}>
                   {current.title}
                 </Typography>
                 <Stack direction="row" spacing={1} flexWrap="wrap">
@@ -234,7 +235,7 @@ export default function CaseStudies() {
                 </Stack>
               </Stack>
 
-              <Typography variant="body1" sx={{ color: "text.secondary", mb: 3 }}>
+              <Typography variant="body1" sx={{ color: "text.secondary", mb: 3, fontFamily: "poppins" }}>
                 {current.description}
               </Typography>
 
@@ -244,14 +245,14 @@ export default function CaseStudies() {
                 mb={3}
               >
                 <Box sx={{ flex: 1 }}>
-                  <Typography variant="subtitle2" sx={{ mb: 1 }}>
+                  <Typography variant="subtitle2" sx={{ mb: 1, fontFamily: "poppins" }}>
                     Challenge
                   </Typography>
                   <BulletList items={current.challenge} />
                 </Box>
                 <Divider flexItem orientation="vertical" sx={{ display: { xs: "none", md: "block" } }} />
                 <Box sx={{ flex: 1 }}>
-                  <Typography variant="subtitle2" sx={{ mb: 1 }}>
+                  <Typography variant="subtitle2" sx={{ mb: 1, fontFamily: "poppins" }}>
                     Solution
                   </Typography>
                   <BulletList items={current.solution} />
@@ -259,7 +260,7 @@ export default function CaseStudies() {
               </Stack>
 
               <Stack spacing={1}>
-                <Typography variant="subtitle2">Technologies</Typography>
+                <Typography variant="subtitle2" sx={{ fontFamily: "poppins" }}>Technologies</Typography>
                 <Stack direction="row" spacing={1} flexWrap="wrap">
                   {current.technologies.map((t) => (
                     <Chip
@@ -290,10 +291,10 @@ export default function CaseStudies() {
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <Avatar sx={{ width: 36, height: 36 }}>{current.testimonial.avatar}</Avatar>
                   <Box sx={{ minWidth: 0 }}>
-                    <Typography variant="body2" sx={{ fontStyle: "italic" }}>
+                    <Typography variant="body2" sx={{ fontStyle: "italic", fontFamily: "poppins" }}>
                       "{current.testimonial.text}"
                     </Typography>
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography variant="caption" color="text.secondary" sx={{ fontFamily: "poppins" }}>
                       {current.testimonial.author} • {current.testimonial.position}
                     </Typography>
                   </Box>
